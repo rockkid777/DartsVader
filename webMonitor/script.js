@@ -68,7 +68,7 @@ $( function() {
         $('.info').html(msg.info);
     };
 
-    var host = host || 'http://localhost';
+    var host = host || 'http://10.27.7.113';
     var port = port || '8080';
     var socket = new io.connect(host + ":" + port);
         socket.on('connect', function() {console.log('connected.');});

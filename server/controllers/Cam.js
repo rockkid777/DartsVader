@@ -34,6 +34,7 @@ module.exports = function(app, io, game){
         game.info = JSON.stringify();
 
         if ( req.query.handsVisible && currentScore > 0){
+            game.info = JSON.stringify("Kezeket érzékeltem.");
             game.players[game.currentPlayer].score -= currentScore;
             currentScore = 0;
 
@@ -50,7 +51,7 @@ module.exports = function(app, io, game){
 
             var rounds = game.players[game.currentPlayer].rounds;
 
-            if (throwNum == 0) {
+            if (throwNum == 0 || rounds == "undefined" || rounds.length == 0) {
                 rounds[currentRound] = req.query.num + modifierToString(req.query.modifier);
             } else {
                 rounds[currentRound] += " " + req.query.num + modifierToString(req.query.modifier);
@@ -70,14 +71,13 @@ module.exports = function(app, io, game){
             }
         }
 
-        // io.emit('update', game);
+        io.emit('update', game);
         res.status(200).send(game);
     });
 
     app.get('/cam/reset', function (req, res) {
         game = reset();
-
-        // io.emit('update', game);
+        io.emit('update', game);
         res.status(200).send(game);
     });
 

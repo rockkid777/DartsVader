@@ -30,12 +30,15 @@ var io = require('socket.io')(server);
 var Game = require('./model/Game.js');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.0.1:27017');
+//mongoose.connect('mongodb://172.17.0.1:27017');
 
 app.use(express.static('public'));
 app.use(express.static('files'));
 var path = require('path');
 
+app.get('/webMonitor/script.js', function(req, res){
+    res.sendFile(path.join(__dirname, '/../webMonitor/script.js'));
+});
 app.get('/webMonitor', function(req, res){
     res.sendFile(path.join(__dirname, '/../webMonitor/index.html'));
 });
