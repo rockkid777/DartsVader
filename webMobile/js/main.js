@@ -1,4 +1,4 @@
-var host = "http://10.27.7.26:8080/";
+var host = "http://localhost:8080/";
 var playerNameInputTemplate = '<div id="input-{idx}" class="form-group"><div class="input-group"><div class="input-group-addon">{num}</div><input type="text" class="form-control" placeholder="Név" value="{name}" /></div></div>';
 
 function init() {

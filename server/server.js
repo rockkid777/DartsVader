@@ -27,17 +27,16 @@ app.use(bodyParser.json());
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var Game = require('./model/Game.js');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://172.17.0.1:27017');
 
-var Game = require('./model/Game.js');
-
-Game.players = [ {name: "Sanyi"}, {name: "Karesz"} ];
+var game = new Game({players: [ {name: "Sanyi"}, {name: "Karesz"} ]});
 
 // load controllers
 require('./controllers/Index.js')(app);
-require('./controllers/Mobile.js')(app, io, Game);
+require('./controllers/Mobile.js')(app, io, game);
 require('./controllers/Cam.js')(app);
 
 server.listen(PORT);
