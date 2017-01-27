@@ -1,0 +1,25 @@
+.hidden {
+    display: none;
+}
+
+.error-container {
+    padding: 16px 10px;
+    margin-top: 24px;
+    border: 1px solid #ab0000;
+    background-color: #ffcaca;
+    border-radius: 5px;
+    color: #ab0000;
+}
+
+.info-container {
+    padding: 16px 10px;
+    margin-top: 24px;
+    border: 1px solid #09ab00;
+    background-color: #ddffde;
+    border-radius: 5px;
+    color: #09ab00;
+}
+
+.player-form {
+    margin-top: 24px;
+}
