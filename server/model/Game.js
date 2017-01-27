@@ -4,8 +4,12 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var gameSchema = new Schema({
-    token: String,
-    players: [ {name: String} ]
+    info: String,
+    players: [{
+        name: String,
+        score: Number,
+        rounds: [String]
+    }]
 });
 
 // the schema is useless so far

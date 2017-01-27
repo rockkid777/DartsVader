@@ -14,11 +14,11 @@ var DartsVader = function(parentNode, io, host, port){
     //TODO: do initializer for getting references for constant DOM nodes.
     var drawPlayer = function(playerNumber, data) {
         var playerNode = parentNode
-            .getElementsByClassName('pl' + playerNumber)[0];
+            .getElementsByClassName('p' + playerNumber)[0];
         playerNode.getElementsByClassName('name')[0].innerHTML =
             escape(data.name);
         playerNode.getElementsByClassName('score')[0].innerHTML =
-            escape(data.score);
+            escape(data.score || '');
         var roundsNode = playerNode.getElementsByClassName('rounds')[0];
         roundsNode.innerHTML = '';
         data.rounds.forEach(function(elem) {
@@ -30,13 +30,12 @@ var DartsVader = function(parentNode, io, host, port){
     };
 
     var handleMessage = function(msg) {
-
         msg.players.forEach(function(elem, ind) {
             drawPlayer(ind + 1, elem);
         });
 
         var infoNode = parentNode.getElementsByClassName('info')[0];
-        infoNode.innerHTML = escape(msg.info);
+        infoNode.innerHTML = escape(msg.info || '');
     };
 
     var run = function() {
