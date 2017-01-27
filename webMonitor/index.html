@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DartsVader</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js" charset="utf-8"></script>
+        <script src="./script.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1>Darts Vader</h1>
+        <div class="drawArea">
+            <div class="p1">
+                <div class="name"></div>
+                <div class="score"></div>
+                <div class="rounds"></div>
+            </div>
+            <div class="p2">
+                <div class="name"></div>
+                <div class="score"></div>
+                <div class="rounds">
+                    <div class="round"></div>
+                </div>
+            </div>
+            <div class="info"></div>
+        </div>
+
+        <script type="text/javascript">
+            var node = document.getElementsByClassName('drawArea')[0];
+            var vader = new DartsVader(node, io, 'http://10.27.7.26', '8080');
+            console.log(vader);
+            vader.run();
+        </script>
+    </body>
+</html>
