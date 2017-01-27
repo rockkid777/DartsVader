@@ -40,7 +40,7 @@ app.get('/webMonitor', function(req, res){
     res.sendFile(path.join(__dirname, '/../webMonitor/index.html'));
 });
 
-var game = new Game({players: [ {name: "Sanyi", score: '214', rounds: ['1 2 3', '5 6 7']}, {name: "Karesz"} ]});
+var game = new Game();
 
 // load controllers
 require('./controllers/Index.js')(app);

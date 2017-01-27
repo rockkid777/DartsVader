@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 // create a schema
 var gameSchema = new Schema({
     info: String,
+    currentPlayer: Number,
     players: [{
         name: String,
         score: Number,
