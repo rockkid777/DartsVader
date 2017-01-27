@@ -8,6 +8,7 @@ services:
      - "8080:8080"
     volumes:
      - ./server/:/usr/src/app/server/
+     - ./webMonitor/:/usr/src/app/webMonitor/
   mongo:
     image: "mongo:3.0.14"
     ports:

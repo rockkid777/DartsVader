@@ -4,9 +4,14 @@
         <meta charset="utf-8">
         <title>DartsVader</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js" charset="utf-8"></script>
-        <script src="./script.js" charset="utf-8"></script>
+
+        <script
+                src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="./script.js" charset="utf-8"></script>
     </head>
     <body>
 
@@ -14,29 +19,19 @@
     </div>
 
             <div class="drawArea row">
-                <div class="p2 col-md-4 col-md-offset-1 well well-lg">
+                <div class="p0 col-md-4 col-md-offset-1 well well-lg">
                     <h1 class="text-center"><span class="name" style="font-size: 45pt;">Sanya</span></h1> <br />
                     <h1 class="text-center"><span class="score label label-info" style="font-size: 65pt;">100</span></h1>
                     <br /><br />
                     <ul class="list-group">
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
                     </ul>
                 </div>
 
-                <div class="p2 col-md-4 col-md-offset-1 well well-lg">
+                <div class="p1 col-md-4 col-md-offset-1 well well-lg">
                     <h1 class="text-center"><span class="name" style="font-size: 45pt;">Sanya</span></h1> <br />
                     <h1 class="text-center"><span class="score label label-info" style="font-size: 65pt;">100</span></h1>
                     <br /><br />
                     <ul class="list-group">
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
-                        <li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">20t 1 5d</h2></li>
                     </ul>
                 </div>
             </div>
@@ -46,10 +41,10 @@
     </div>
 
         <script type="text/javascript">
-            var node = document.getElementsByClassName('drawArea')[0];
-            var vader = new DartsVader(node, io, 'http://localhost', '8080');
-            console.log(vader);
-            vader.run();
+//            var node = document.getElementsByClassName('drawArea')[0];
+//            var vader = new DartsVader(node, io, 'http://localhost', '8080');
+//            console.log(vader);
+//            vader.run();
         </script>
     </body>
 </html>

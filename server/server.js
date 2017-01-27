@@ -32,15 +32,23 @@ var Game = require('./model/Game.js');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://172.17.0.1:27017');
 
-var game = new Game({players: [ {name: "Sanyi"}, {name: "Karesz"} ]});
+app.use(express.static('public'));
+app.use(express.static('files'));
+var path = require('path');
+
+app.get('/webMonitor', function(req, res){
+    res.sendFile(path.join(__dirname, '/../webMonitor/index.html'));
+});
+
+var game = new Game({players: [ {name: "Sanyi", score: '214', rounds: ['1 2 3', '5 6 7']}, {name: "Karesz"} ]});
 
 // load controllers
 require('./controllers/Index.js')(app);
 require('./controllers/Mobile.js')(app, io, game);
-require('./controllers/Cam.js')(app);
+require('./controllers/Cam.js')(app, io, game);
 
 server.listen(PORT);
-console.log('Running on http://localhost:' + PORT);
+console.log('Running on http://localhost:' + PORT + '            ' + __dirname + '/../webMonitor/index.html');
 
 io.on('connection', function(client) {
     console.log('Client connected...');

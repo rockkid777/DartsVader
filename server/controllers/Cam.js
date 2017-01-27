@@ -1,9 +1,12 @@
 
 
-module.exports = function(app){
+module.exports = function(app, io, game){
 
     app.get('/cam', function (req, res) {
-        res.json(['Sanyi', 'Béla']);
+        game.info = JSON.stringify(req.query);
+
+        io.emit('update', game);
+        res.status(200).send();
     });
 
 }
