@@ -54,16 +54,18 @@ $( function() {
 
     var handleMessage = function(msg) {
         msg.players.forEach(function(elem, ind) {
-            // console.log($('.p' + ind).find(''));
+            console.log($('.p' + ind).find(''));
             $('.p' + ind).find('.name').html(elem.name);
             $('.p' + ind).find('.score').html(elem.score);
 
             $('.list-group').html('');
 
+/*
             elem.rounds.forEach(function(e, i){
                 $('.p' + ind).find('.list-group')
                     .prepend('<li class="list-group-item text-center" style="word-spacing: 30px;"><h2 class="rounds">'+e+'</h2></li>');
             });
+*/
         });
         $('.info').html(msg.info);
     };

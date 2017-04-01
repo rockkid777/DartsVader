@@ -5,8 +5,8 @@ module.exports = function(app, io, game){
     var reset = function (){
         return {
             players: [
-                {name: "A", score: 301, rounds: []},
-                {name: "A", score: 301, rounds: []}
+                {name: "Pl #1", score: 301, rounds: []},
+                {name: "Pl #2", score: 301, rounds: []}
                 ],
             info: "",
             currentPlayer: 0
@@ -31,7 +31,11 @@ module.exports = function(app, io, game){
     var throwNum = 0;
 
     app.get('/cam', function (req, res) {
-        game.info = JSON.stringify();
+
+        if (game.players[0].rounds.length == 0 && game.players[1].rounds.length == 0) {
+           currentRound = 0;
+           throwNum = 0;
+        }
 
         if ( req.query.handsVisible && currentScore > 0){
             game.info = JSON.stringify("Kezeket érzékeltem.");
@@ -44,8 +48,6 @@ module.exports = function(app, io, game){
             game.currentPlayer = ( game.currentPlayer == 1 ) ? 0 : 1;
         }
 
-        console.log(req.query.num + ' :::: ' + req.query.modifier)
-
         if ( req.query.num && req.query.modifier ){
             currentScore += req.query.num * req.query.modifier;
 
@@ -56,6 +58,8 @@ module.exports = function(app, io, game){
             } else {
                 rounds[currentRound] += " " + req.query.num + modifierToString(req.query.modifier);
             }
+            game.info = JSON.stringify(modifierToString(req.query.modifier) + " " + req.query.num );
+
 
             throwNum++;
             if (throwNum == 3 || game.players[game.currentPlayer].score - currentScore < 0) {
@@ -75,7 +79,7 @@ module.exports = function(app, io, game){
         res.status(200).send(game);
     });
 
-    app.get('/cam/reset', function (req, res) {
+    app.get('/Cam/reset', function (req, res) {
         game = reset();
         io.emit('update', game);
         res.status(200).send(game);
